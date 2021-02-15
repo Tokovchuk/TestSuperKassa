@@ -1,0 +1,33 @@
+.button {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: red;
+    border: 10px solid darkred;
+    outline: none;
+    box-shadow: 5px 5px 5px black;
+    opacity: 0.75;
+    cursor: pointer;
+
+
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.button:hover {
+    opacity: 1;
+}
+
+.button:active {
+    box-shadow: 3px 3px 3px black;
+    width: 140px;
+    height: 140px;
+    font-size: 18px;
+    border: 8px solid darkred;
+}
+
