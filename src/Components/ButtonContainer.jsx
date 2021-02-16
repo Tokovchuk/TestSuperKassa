@@ -1,6 +1,7 @@
 import {connect} from "react-redux";
 import Button from "./Button";
-import {toggleButton} from "../Redux/Button-reducer";
+import {getStatus, setStatus, updateStatus} from "../Redux/Button-reducer";
+import React from 'react';
 
 const mapStateToProps = (state) => {
     return {
@@ -8,6 +9,18 @@ const mapStateToProps = (state) => {
     }
 }
 
-const ButtonContainer = connect(mapStateToProps, {toggleButton})(Button)
+class ButtonContainer extends React.Component {
+    onButtonClick = () => {
+        this.props.updateStatus(!this.props.isActive);
+        this.props.setStatus(
+            this.props.getStatus()
+        )
+    }
 
-export default ButtonContainer
+    render() {
+        return <Button {...this.props} onButtonClick={this.onButtonClick}/>;
+    }
+}
+
+export default connect(mapStateToProps, {setStatus, updateStatus, getStatus})(ButtonContainer)
+
